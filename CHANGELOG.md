@@ -5,3 +5,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## 0.4.2 (Dec 9, 2018)
 * Initial release
+
+## 0.4.3 (Dec 9, 2018)
+* Add math constants highlight

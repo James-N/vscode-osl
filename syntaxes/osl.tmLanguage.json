@@ -25,12 +25,16 @@
             "name": "storage.modifier.osl"
         },
         {
+            "match": "\\b(P|I|N|Ng|dPdu|dPdv|Ps|u|v|time|dtime|dPdtime|Ci)\\b",
+            "name": "constant.language.osl"
+        },
+        {
             "match": "\\b(OSL_VERSION(?:_(?:MAJOR|MINOR|PATCH))?)\\b",
             "name": "support.constant.version.osl"
         },
         {
-            "match": "\\b(P|I|N|Ng|dPdu|dPdv|Ps|u|v|time|dtime|dPdtime|Ci)\\b",
-            "name": "constant.language.osl"
+            "match": "\\b(M_(?:PI|PI_2|PI_4|2_PI|2PI|4PI|2_SQRTPI|E|LN2|LN10|LOG2E|LOG10E|SQRT2|SQRT1_2))\\b",
+            "name": "support.constant.math"
         },
         {
             "include": "#operators"
