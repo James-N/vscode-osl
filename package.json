@@ -1,0 +1,37 @@
+{
+    "name": "OpenShadingLanguage",
+    "displayName": "OSL Support",
+    "description": "Provides snippets, syntax highlighting in osl files based on osl language spec",
+    "icon": "./resource/images/osl-logo-large.png",
+    "version": "0.4.1",
+    "publisher": "James-Ni",
+    "license": "MIT",
+    "engines": {
+        "vscode": "^0.10.1"
+    },
+    "categories": [
+        "Programming Languages",
+		"Snippets"
+    ],
+    "keywords": [
+		"osl",
+		"shading"
+	],
+    "contributes": {
+        "languages": [{
+            "id": "osl",
+            "aliases": ["Open Shading Language", "osl", "OSL"],
+            "extensions": ["osl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "osl",
+            "scopeName": "source.osl",
+            "path": "./syntaxes/osl.tmLanguage.json"
+        }],
+        "snippets": [{
+            "language": "osl",
+            "path": "./snippets/osl.json"
+        }]
+    }
+}

@@ -1,0 +1,1776 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Open Shading Language",
+    "patterns": [
+        {
+            "include": "#preprocessor-rule-enabled"
+        },
+        {
+            "include": "#preprocessor-rule-disabled"
+        },
+        {
+            "include": "#preprocessor-rule-conditional"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#storage_types"
+        },
+        {
+            "match": "\\b(shader|volume|displacement|surface|public)\\b",
+            "name": "storage.modifier.osl"
+        },
+        {
+            "match": "\\b(OSL_VERSION(?:_(?:MAJOR|MINOR|PATCH))?)\\b",
+            "name": "support.constant.version.osl"
+        },
+        {
+            "match": "\\b(P|I|N|Ng|dPdu|dPdv|Ps|u|v|time|dtime|dPdtime|Ci)\\b",
+            "name": "constant.language.osl"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#preprocessor-macro"
+        },
+        {
+            "include": "#preprocessor-include"
+        },
+        {
+            "include": "#pragma-mark"
+        },
+        {
+            "include": "#preprocessor-undef"
+        },
+        {
+            "include": "#preprocessor-pragma"
+        },
+        {
+            "include": "#block"
+        },
+        {
+            "include": "#parens"
+        },
+        {
+            "include": "#line_continuation_character"
+        },
+        {
+            "include": "#libosl"
+        },
+        {
+            "include": "#operator-overload"
+        },
+        {
+            "include": "#bracket-square"
+        },
+        {
+            "match": ";",
+            "name": "punctuation.terminator.statement.osl"
+        },
+        {
+            "match": ",",
+            "name": "punctuation.separator.delimiter.osl"
+        }
+    ],
+    "repository": {
+        "access": {
+            "captures": {
+                "2": {
+                    "name": "punctuation.separator.dot-access.osl"
+                },
+                "3": {
+                    "name": "punctuation.separator.pointer-access.osl"
+                },
+                "4": {
+                    "name": "variable.other.member.osl"
+                }
+            },
+            "match": "((\\.)|(->))\\s*(([a-zA-Z_][a-zA-Z_0-9]*)\\b(?!\\s*\\())?"
+        },
+        "block": {
+            "patterns": [
+                {
+                    "begin": "{",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.begin.bracket.curly.osl"
+                        }
+                    },
+                    "end": "}|(?=\\s*#\\s*(?:elif|else|endif)\\b)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.end.bracket.curly.osl"
+                        }
+                    },
+                    "name": "meta.block.osl",
+                    "patterns": [
+                        {
+                            "include": "#block_innards"
+                        }
+                    ]
+                }
+            ]
+        },
+        "block_innards": {
+            "patterns": [
+                {
+                    "include": "#preprocessor-rule-enabled-block"
+                },
+                {
+                    "include": "#preprocessor-rule-disabled-block"
+                },
+                {
+                    "include": "#preprocessor-rule-conditional-block"
+                },
+                {
+                    "include": "#access"
+                },
+                {
+                    "include": "#osl_function_call"
+                },
+                {
+                    "include": "#libosl"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "variable.other.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.parameters.osl"
+                        }
+                    },
+                    "match": "(?x)\n(?:\n  (?:\n    (?=\\s)(?<!else|return)\n    (?<=\\w) \\s+  # or word + space before name\n  )\n)\n(\n  (?:[A-Za-z_][A-Za-z0-9_]*+ | :: )++   # actual name\n  |\n  (?:(?<=operator) (?:[-*&<>=+!]+ | \\(\\) | \\[\\]))\n)\n\\s*(\\() # opening bracket",
+                    "name": "meta.initialization.osl"
+                },
+                {
+                    "begin": "{",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.begin.bracket.curly.osl"
+                        }
+                    },
+                    "end": "}|(?=\\s*#\\s*(?:elif|else|endif)\\b)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.end.bracket.curly.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#block_innards"
+                        }
+                    ]
+                },
+                {
+                    "include": "#parens-block"
+                },
+                {
+                    "include": "$base"
+                }
+            ]
+        },
+        "parens-block": {
+            "begin": "\\(",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.section.parens.begin.bracket.round.osl"
+                }
+            },
+            "end": "\\)",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.section.parens.end.bracket.round.osl"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#block_innards"
+                }
+            ]
+        },
+        "bracket-square": {
+            "match": "(\\[)|(\\])",
+            "captures": {
+                "1": {
+                    "name": "punctuation.definition.begin.bracket.square.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.end.bracket.square.osl"
+                }
+            }
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "captures": {
+                        "1": {
+                            "name": "meta.toc-list.banner.block.osl"
+                        }
+                    },
+                    "match": "^/\\* =(\\s*.*?)\\s*= \\*/$\\n?",
+                    "name": "comment.block.osl"
+                },
+                {
+                    "begin": "/\\*",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.begin.osl"
+                        }
+                    },
+                    "end": "\\*/",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.end.osl"
+                        }
+                    },
+                    "name": "comment.block.osl"
+                },
+                {
+                    "match": "\\*/.*\\n",
+                    "name": "invalid.illegal.stray-comment-end.osl"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "meta.toc-list.banner.line.osl"
+                        }
+                    },
+                    "match": "^// =(\\s*.*?)\\s*=\\s*$\\n?",
+                    "name": "comment.line.banner.osl"
+                },
+                {
+                    "begin": "(^[ \\t]+)?(?=//)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.whitespace.comment.leading.osl"
+                        }
+                    },
+                    "end": "(?!\\G)",
+                    "patterns": [
+                        {
+                            "begin": "//",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "punctuation.definition.comment.osl"
+                                }
+                            },
+                            "end": "(?=\\n)",
+                            "name": "comment.line.double-slash.osl",
+                            "patterns": [
+                                {
+                                    "include": "#line_continuation_character"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [{
+                "name": "keyword.control.osl",
+                "match": "\\b(and|break|closure|continue|do|else|emit|for|if|illuminance|illuminate|not|or|output|public|return|while)\\b"
+            }, {
+                "name": "keyword.reserved.osl",
+                "match": "\\b(bool|case|catch|char|class|const|delete|default|double|enum|extern|false|friend|goto|inline|long|new|operator|private|protected|short|signed|sizeof|static|switch|template|this|throw|true|try|typedef|uniform|union|unsigned|varying|virtual|volatile)\\b"
+            }]
+        },
+        "strings": {
+            "name": "string.quoted.double.osl",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "include": "#string_escaped_char"
+                },
+                {
+                    "include": "#string_placeholder"
+                },
+                {
+                    "include": "#line_continuation_character"
+                }
+            ]
+        },
+        "string_escaped_char": {
+            "patterns": [
+                {
+                    "match": "(?x)\\\\ (\n\\\\             |\n[abefnprtv'\"?]   |\n[0-3]\\d{,2}     |\n[4-7]\\d?        |\nx[a-fA-F0-9]{,2} |\nu[a-fA-F0-9]{,4} |\nU[a-fA-F0-9]{,8} )",
+                    "name": "constant.character.escape.osl"
+                },
+                {
+                    "match": "\\\\.",
+                    "name": "invalid.illegal.unknown-escape.osl"
+                }
+            ]
+        },
+        "string_placeholder": {
+            "patterns": [
+                {
+                    "match": "(?x) %\n(\\d+\\$)?                           # field (argument #)\n[#0\\- +']*                          # flags\n[,;:_]?                              # separator character (AltiVec)\n((-?\\d+)|\\*(-?\\d+\\$)?)?          # minimum field width\n(\\.((-?\\d+)|\\*(-?\\d+\\$)?)?)?    # precision\n(hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)? # length modifier\n[diouxXDOUeEfFgGaACcSspn%]           # conversion type",
+                    "name": "constant.other.placeholder.osl"
+                },
+                {
+                    "match": "(%)(?!\"\\s*(PRI|SCN))",
+                    "captures": {
+                        "1": {
+                            "name": "invalid.illegal.placeholder.osl"
+                        }
+                    }
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "match": "\\b((0(x|X)[0-9a-fA-F]([0-9a-fA-F']*[0-9a-fA-F])?)|(0(b|B)[01]([01']*[01])?)|(([0-9]([0-9']*[0-9])?\\.?[0-9]*([0-9']*[0-9])?)|(\\.[0-9]([0-9']*[0-9])?))((e|E)(\\+|-)?[0-9]([0-9']*[0-9])?)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b",
+                    "name": "constant.numeric.osl"
+                }
+            ]
+        },
+        "libosl": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.whitespace.support.function.leading.osl"
+                },
+                "2": {
+                    "name": "support.function.osl"
+                }
+            },
+            "match": "(?x) (\\s*) \\b\n(D[xyz]|a(?:astep|bs(?:orption)?|cos|r(?:ea|raylength)|sin|tan2?)|b(?:ack(?:facing|ground)|lackbody|ump)|c(?:alculatenormal|e(?:il|llnoise)|lamp|o(?:ncat|sh?)|ross)|d(?:e(?:bug|grees|terminate)|i(?:ct_(?:find|next|value)|ffuse|s(?:place|tance))|ot)|e(?:mission|n(?:dswith|vironment)|r(?:fc?|ror)|x(?:it|p(?:m1|2)?))|f(?:a(?:bs|ceforward)|ilterwidth|loor|mod|ormat|printf|resnel)|get(?:attribute|char|m(?:atrix|essage)|textureinfo)|h(?:ash(?:noise)?|enyey_greenstein|oldout|ypot)|i(?:nversesqrt|s(?:con(?:nected|stant)|finite|inf|nan|otropic))|l(?:ength|inearstep|og(?:10|[2b])?|uminance)|m(?:ax|i(?:crofacet|[nx])|od)|no(?:ise|rmalize)|oren_nayar|p(?:hong|noise|o(?:intcloud_(?:get|search|write)|w)|rintf|snoise|type)|r(?:aytype|e(?:f(?:lect(?:ion)?|ract(?:ion)?)|gex_(?:match|search))|o(?:tate|und))|s(?:e(?:lect|tmessage)|i(?:gn|n(?:cos|h)?)|mooth(?:_linearstep|step)|noise|pli(?:ne(?:inverse)?|t)|qrt|t(?:artswith|ep|o[fi]|rlen)|u(?:bstr|rfacearea))|t(?:anh?|exture(?:3d)?|r(?:a(?:ce|ns(?:clude|form[cu]?|p(?:arent|ose)))|unc))|wa(?:r(?:ning|d)|velength_color))\\b"
+        },
+        "operator-overload": {
+            "match": "(\\s*) \\b(__operator__(?:neg|compl|not|mul|div|mod|add|sub|shl|shr|lt|le|gt|ge|eq|ne|bitand|xor|bitor)__)\\b",
+            "captures": {
+                "1": {
+                    "name": "punctuation.whitespace.support.function.leading.osl"
+                },
+                "2": {
+                    "name": "support.function.operator.osl"
+                }
+            }
+        },
+        "line_continuation_character": {
+            "patterns": [
+                {
+                    "match": "(\\\\)\\n",
+                    "captures": {
+                        "1": {
+                            "name": "constant.character.escape.line-continuation.osl"
+                        }
+                    }
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "match": "--",
+                    "name": "keyword.operator.decrement.osl"
+                },
+                {
+                    "match": "\\+\\+",
+                    "name": "keyword.operator.increment.osl"
+                },
+                {
+                    "match": "%=|\\+=|-=|\\*=|(?<!\\()/=",
+                    "name": "keyword.operator.assignment.compound.osl"
+                },
+                {
+                    "match": "&=|\\^=|<<=|>>=|\\|=",
+                    "name": "keyword.operator.assignment.compound.bitwise.osl"
+                },
+                {
+                    "match": "<<|>>",
+                    "name": "keyword.operator.bitwise.shift.osl"
+                },
+                {
+                    "match": "!=|<=|>=|==|<|>",
+                    "name": "keyword.operator.comparison.osl"
+                },
+                {
+                    "match": "&&|!|\\|\\|",
+                    "name": "keyword.operator.logical.osl"
+                },
+                {
+                    "match": "&|\\||\\^|~",
+                    "name": "keyword.operator.osl"
+                },
+                {
+                    "match": "=",
+                    "name": "keyword.operator.assignment.osl"
+                },
+                {
+                    "match": "%|\\*|/|-|\\+",
+                    "name": "keyword.operator.osl"
+                },
+                {
+                    "begin": "\\?",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "keyword.operator.ternary.osl"
+                        }
+                    },
+                    "end": ":",
+                    "applyEndPatternLast": true,
+                    "endCaptures": {
+                        "0": {
+                            "name": "keyword.operator.ternary.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#access"
+                        },
+                        {
+                            "include": "#osl_function_call"
+                        },
+                        {
+                            "include": "#libosl"
+                        },
+                        {
+                            "include": "$base"
+                        }
+                    ]
+                }
+            ]
+        },
+        "storage_types": {
+            "patterns": [
+                {
+                    "match": "\\b(float|int|struct|color|point|vector|normal|matrix|string|void)\\b",
+                    "name": "storage.type.osl"
+                }
+            ]
+        },
+        "osl_function_call": {
+            "begin": "(?x)\n(?!(?:while|for|do|if|else|return)\\s*\\()\n(?=\n(?:[A-Za-z_][A-Za-z0-9_]*+|::)++\\s*\\(  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\\s*\\(\n)",
+            "end": "(?<=\\))(?!\\w)",
+            "name": "meta.function-call.osl",
+            "patterns": [
+                {
+                    "include": "#function-call-innards"
+                }
+            ]
+        },
+        "function-call-innards": {
+            "patterns": [
+                {
+                    "include": "#comments"
+                },
+                {
+                    "include": "#storage_types"
+                },
+                {
+                    "include": "#access"
+                },
+                {
+                    "include": "#operators"
+                },
+                {
+                    "begin": "(?x)\n(?!(?:while|for|do|if|else|return)\\s*\\()\n(\n(?:[A-Za-z_][A-Za-z0-9_]*+|::)++  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "entity.name.function.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.section.arguments.begin.bracket.round.osl"
+                        }
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.arguments.end.bracket.round.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#function-call-innards"
+                        }
+                    ]
+                },
+                {
+                    "begin": "\\(",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.parens.begin.bracket.round.osl"
+                        }
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.parens.end.bracket.round.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#function-call-innards"
+                        }
+                    ]
+                },
+                {
+                    "include": "#block_innards"
+                }
+            ]
+        },
+        "pragma-mark": {
+            "captures": {
+                "1": {
+                    "name": "meta.preprocessor.pragma.osl"
+                },
+                "2": {
+                    "name": "keyword.control.directive.pragma.pragma-mark.osl"
+                },
+                "3": {
+                    "name": "punctuation.definition.directive.osl"
+                },
+                "4": {
+                    "name": "entity.name.tag.pragma-mark.osl"
+                }
+            },
+            "match": "^\\s*(((#)\\s*pragma\\s+mark)\\s+(.*))",
+            "name": "meta.section"
+        },
+        "disabled": {
+            "begin": "^\\s*#\\s*if(n?def)?\\b.*$",
+            "end": "^\\s*#\\s*endif\\b",
+            "patterns": [
+                {
+                    "include": "#disabled"
+                },
+                {
+                    "include": "#pragma-mark"
+                }
+            ]
+        },
+        "preprocessor-rule-conditional": {
+            "patterns": [
+                {
+                    "begin": "^\\s*((#)\\s*if(?:n?def)?\\b)",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "end": "^\\s*((#)\\s*endif\\b)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                            "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                            "name": "meta.preprocessor.osl",
+                            "patterns": [
+                                {
+                                    "include": "#preprocessor-rule-conditional-line"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "#preprocessor-rule-enabled-elif"
+                        },
+                        {
+                            "include": "#preprocessor-rule-enabled-else"
+                        },
+                        {
+                            "include": "#preprocessor-rule-disabled-elif"
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*elif\\b)",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                            "name": "meta.preprocessor.osl",
+                            "patterns": [
+                                {
+                                    "include": "#preprocessor-rule-conditional-line"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "$base"
+                        }
+                    ]
+                },
+                {
+                    "match": "^\\s*#\\s*(else|elif|endif)\\b",
+                    "captures": {
+                        "0": {
+                            "name": "invalid.illegal.stray-$1.osl"
+                        }
+                    }
+                }
+            ]
+        },
+        "preprocessor-rule-conditional-block": {
+            "patterns": [
+                {
+                    "begin": "^\\s*((#)\\s*if(?:n?def)?\\b)",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "end": "^\\s*((#)\\s*endif\\b)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                            "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                            "name": "meta.preprocessor.osl",
+                            "patterns": [
+                                {
+                                    "include": "#preprocessor-rule-conditional-line"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "#preprocessor-rule-enabled-elif-block"
+                        },
+                        {
+                            "include": "#preprocessor-rule-enabled-else-block"
+                        },
+                        {
+                            "include": "#preprocessor-rule-disabled-elif"
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*elif\\b)",
+                            "beginCaptures": {
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                            "name": "meta.preprocessor.osl",
+                            "patterns": [
+                                {
+                                    "include": "#preprocessor-rule-conditional-line"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "#block_innards"
+                        }
+                    ]
+                },
+                {
+                    "match": "^\\s*#\\s*(else|elif|endif)\\b",
+                    "captures": {
+                        "0": {
+                            "name": "invalid.illegal.stray-$1.osl"
+                        }
+                    }
+                }
+            ]
+        },
+        "preprocessor-rule-conditional-line": {
+            "patterns": [
+                {
+                    "match": "(?:\\bdefined\\b\\s*$)|(?:\\bdefined\\b(?=\\s*\\(*\\s*(?:(?!defined\\b)[a-zA-Z_$][\\w$]*\\b)\\s*\\)*\\s*(?:\\n|//|/\\*|\\?|\\:|&&|\\|\\||\\\\\\s*\\n)))",
+                    "name": "keyword.control.directive.conditional.osl"
+                },
+                {
+                    "match": "\\bdefined\\b",
+                    "name": "invalid.illegal.macro-name.osl"
+                },
+                {
+                    "include": "#comments"
+                },
+                {
+                    "include": "#strings"
+                },
+                {
+                    "include": "#numbers"
+                },
+                {
+                    "begin": "\\?",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "keyword.operator.ternary.osl"
+                        }
+                    },
+                    "end": ":",
+                    "endCaptures": {
+                        "0": {
+                            "name": "keyword.operator.ternary.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-conditional-line"
+                        }
+                    ]
+                },
+                {
+                    "include": "#operators"
+                },
+                {
+                    "match": "\\b(NULL|true|false|TRUE|FALSE)\\b",
+                    "name": "constant.language.osl"
+                },
+                {
+                    "match": "[a-zA-Z_$][\\w$]*",
+                    "name": "entity.name.function.preprocessor.osl"
+                },
+                {
+                    "include": "#line_continuation_character"
+                },
+                {
+                    "begin": "\\(",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.parens.begin.bracket.round.osl"
+                        }
+                    },
+                    "end": "\\)|(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.parens.end.bracket.round.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-conditional-line"
+                        }
+                    ]
+                }
+            ]
+        },
+        "preprocessor-rule-disabled": {
+            "patterns": [
+                {
+                    "begin": "^\\s*((#)\\s*if\\b)(?=\\s*\\(*\\b0+\\b\\)*\\s*(?:$|//|/\\*))",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "end": "^\\s*((#)\\s*endif\\b)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                            "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?=\\n)",
+                            "name": "meta.preprocessor.osl",
+                            "patterns": [
+                                {
+                                    "include": "#preprocessor-rule-conditional-line"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "#comments"
+                        },
+                        {
+                            "include": "#preprocessor-rule-enabled-elif"
+                        },
+                        {
+                            "include": "#preprocessor-rule-enabled-else"
+                        },
+                        {
+                            "include": "#preprocessor-rule-disabled-elif"
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*elif\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*(?:elif|else|endif)\\b))",
+                            "patterns": [
+                                {
+                                    "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                                    "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                                    "name": "meta.preprocessor.osl",
+                                    "patterns": [
+                                        {
+                                            "include": "#preprocessor-rule-conditional-line"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "include": "$base"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "\\n",
+                            "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                            "contentName": "comment.block.preprocessor.if-branch.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "preprocessor-rule-disabled-block": {
+            "patterns": [
+                {
+                    "begin": "^\\s*((#)\\s*if\\b)(?=\\s*\\(*\\b0+\\b\\)*\\s*(?:$|//|/\\*))",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "end": "^\\s*((#)\\s*endif\\b)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                            "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?=\\n)",
+                            "name": "meta.preprocessor.osl",
+                            "patterns": [
+                                {
+                                    "include": "#preprocessor-rule-conditional-line"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "#comments"
+                        },
+                        {
+                            "include": "#preprocessor-rule-enabled-elif-block"
+                        },
+                        {
+                            "include": "#preprocessor-rule-enabled-else-block"
+                        },
+                        {
+                            "include": "#preprocessor-rule-disabled-elif"
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*elif\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*(?:elif|else|endif)\\b))",
+                            "patterns": [
+                                {
+                                    "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                                    "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                                    "name": "meta.preprocessor.osl",
+                                    "patterns": [
+                                        {
+                                            "include": "#preprocessor-rule-conditional-line"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "include": "#block_innards"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "\\n",
+                            "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                            "contentName": "comment.block.preprocessor.if-branch.in-block.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "preprocessor-rule-disabled-elif": {
+            "begin": "^\\s*((#)\\s*elif\\b)(?=\\s*\\(*\\b0+\\b\\)*\\s*(?:$|//|/\\*))",
+            "beginCaptures": {
+                "0": {
+                    "name": "meta.preprocessor.osl"
+                },
+                "1": {
+                    "name": "keyword.control.directive.conditional.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                }
+            },
+            "end": "(?=^\\s*((#)\\s*(?:elif|else|endif)\\b))",
+            "patterns": [
+                {
+                    "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                    "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                    "name": "meta.preprocessor.osl",
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-conditional-line"
+                        }
+                    ]
+                },
+                {
+                    "include": "#comments"
+                },
+                {
+                    "begin": "\\n",
+                    "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                    "contentName": "comment.block.preprocessor.elif-branch.osl",
+                    "patterns": [
+                        {
+                            "include": "#disabled"
+                        },
+                        {
+                            "include": "#pragma-mark"
+                        }
+                    ]
+                }
+            ]
+        },
+        "preprocessor-rule-enabled": {
+            "patterns": [
+                {
+                    "begin": "^\\s*((#)\\s*if\\b)(?=\\s*\\(*\\b0*1\\b\\)*\\s*(?:$|//|/\\*))",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        },
+                        "3": {
+                            "name": "constant.numeric.preprocessor.osl"
+                        }
+                    },
+                    "end": "^\\s*((#)\\s*endif\\b)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                            "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?=\\n)",
+                            "name": "meta.preprocessor.osl",
+                            "patterns": [
+                                {
+                                    "include": "#preprocessor-rule-conditional-line"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "#comments"
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*else\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*endif\\b))",
+                            "contentName": "comment.block.preprocessor.else-branch.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*elif\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                            "contentName": "comment.block.preprocessor.if-branch.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "\\n",
+                            "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                            "patterns": [
+                                {
+                                    "include": "$base"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "preprocessor-rule-enabled-block": {
+            "patterns": [
+                {
+                    "begin": "^\\s*((#)\\s*if\\b)(?=\\s*\\(*\\b0*1\\b\\)*\\s*(?:$|//|/\\*))",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "end": "^\\s*((#)\\s*endif\\b)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "meta.preprocessor.osl"
+                        },
+                        "1": {
+                            "name": "keyword.control.directive.conditional.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.directive.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                            "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?=\\n)",
+                            "name": "meta.preprocessor.osl",
+                            "patterns": [
+                                {
+                                    "include": "#preprocessor-rule-conditional-line"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "#comments"
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*else\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*endif\\b))",
+                            "contentName": "comment.block.preprocessor.else-branch.in-block.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*elif\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                            "contentName": "comment.block.preprocessor.if-branch.in-block.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "\\n",
+                            "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                            "patterns": [
+                                {
+                                    "include": "#block_innards"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "preprocessor-rule-enabled-elif": {
+            "begin": "^\\s*((#)\\s*elif\\b)(?=\\s*\\(*\\b0*1\\b\\)*\\s*(?:$|//|/\\*))",
+            "beginCaptures": {
+                "0": {
+                    "name": "meta.preprocessor.osl"
+                },
+                "1": {
+                    "name": "keyword.control.directive.conditional.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                }
+            },
+            "end": "(?=^\\s*((#)\\s*endif\\b))",
+            "patterns": [
+                {
+                    "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                    "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                    "name": "meta.preprocessor.osl",
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-conditional-line"
+                        }
+                    ]
+                },
+                {
+                    "include": "#comments"
+                },
+                {
+                    "begin": "\\n",
+                    "end": "(?=^\\s*((#)\\s*(?:endif)\\b))",
+                    "patterns": [
+                        {
+                            "begin": "^\\s*((#)\\s*(else)\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*endif\\b))",
+                            "contentName": "comment.block.preprocessor.elif-branch.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*(elif)\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                            "contentName": "comment.block.preprocessor.elif-branch.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "$base"
+                        }
+                    ]
+                }
+            ]
+        },
+        "preprocessor-rule-enabled-elif-block": {
+            "begin": "^\\s*((#)\\s*elif\\b)(?=\\s*\\(*\\b0*1\\b\\)*\\s*(?:$|//|/\\*))",
+            "beginCaptures": {
+                "0": {
+                    "name": "meta.preprocessor.osl"
+                },
+                "1": {
+                    "name": "keyword.control.directive.conditional.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                }
+            },
+            "end": "(?=^\\s*((#)\\s*endif\\b))",
+            "patterns": [
+                {
+                    "begin": "\\G(?=.)(?!//|/\\*(?!.*\\\\\\s*\\n))",
+                    "end": "(?=//)|(?=/\\*(?!.*\\\\\\s*\\n))|(?<!\\\\)(?=\\n)",
+                    "name": "meta.preprocessor.osl",
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-conditional-line"
+                        }
+                    ]
+                },
+                {
+                    "include": "#comments"
+                },
+                {
+                    "begin": "\\n",
+                    "end": "(?=^\\s*((#)\\s*(?:endif)\\b))",
+                    "patterns": [
+                        {
+                            "begin": "^\\s*((#)\\s*(else)\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*endif\\b))",
+                            "contentName": "comment.block.preprocessor.elif-branch.in-block.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        },
+                        {
+                            "begin": "^\\s*((#)\\s*(elif)\\b)",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "meta.preprocessor.osl"
+                                },
+                                "1": {
+                                    "name": "keyword.control.directive.conditional.osl"
+                                },
+                                "2": {
+                                    "name": "punctuation.definition.directive.osl"
+                                }
+                            },
+                            "end": "(?=^\\s*((#)\\s*(?:else|elif|endif)\\b))",
+                            "contentName": "comment.block.preprocessor.elif-branch.osl",
+                            "patterns": [
+                                {
+                                    "include": "#disabled"
+                                },
+                                {
+                                    "include": "#pragma-mark"
+                                }
+                            ]
+                        },
+                        {
+                            "include": "#block_innards"
+                        }
+                    ]
+                }
+            ]
+        },
+        "preprocessor-rule-enabled-else": {
+            "begin": "^\\s*((#)\\s*else\\b)",
+            "beginCaptures": {
+                "0": {
+                    "name": "meta.preprocessor.osl"
+                },
+                "1": {
+                    "name": "keyword.control.directive.conditional.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                }
+            },
+            "end": "(?=^\\s*((#)\\s*endif\\b))",
+            "patterns": [
+                {
+                    "include": "$base"
+                }
+            ]
+        },
+        "preprocessor-rule-enabled-else-block": {
+            "begin": "^\\s*((#)\\s*else\\b)",
+            "beginCaptures": {
+                "0": {
+                    "name": "meta.preprocessor.osl"
+                },
+                "1": {
+                    "name": "keyword.control.directive.conditional.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                }
+            },
+            "end": "(?=^\\s*((#)\\s*endif\\b))",
+            "patterns": [
+                {
+                    "include": "#block_innards"
+                }
+            ]
+        },
+        "preprocessor-rule-define-line-contents": {
+            "patterns": [
+                {
+                    "include": "#vararg_ellipses"
+                },
+                {
+                    "begin": "{",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.begin.bracket.curly.osl"
+                        }
+                    },
+                    "end": "}|(?=\\s*#\\s*(?:elif|else|endif)\\b)|(?<!\\\\)(?=\\s*\\n)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.end.bracket.curly.osl"
+                        }
+                    },
+                    "name": "meta.block.osl",
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-define-line-blocks"
+                        }
+                    ]
+                },
+                {
+                    "match": "\\(",
+                    "name": "punctuation.section.parens.begin.bracket.round.osl"
+                },
+                {
+                    "match": "\\)",
+                    "name": "punctuation.section.parens.end.bracket.round.osl"
+                },
+                {
+                    "begin": "(?x)\n(?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void)\\s*\\()\n(?=\n  (?:[A-Za-z_][A-Za-z0-9_]*+|::)++\\s*\\(  # actual name\n  |\n  (?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\\s*\\(\n)",
+                    "end": "(?<=\\))(?!\\w)|(?<!\\\\)(?=\\s*\\n)",
+                    "name": "meta.function.osl",
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-define-line-functions"
+                        }
+                    ]
+                },
+                {
+                    "begin": "\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.osl"
+                        }
+                    },
+                    "end": "\"|(?<!\\\\)(?=\\s*\\n)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.osl"
+                        }
+                    },
+                    "name": "string.quoted.double.osl",
+                    "patterns": [
+                        {
+                            "include": "#string_escaped_char"
+                        },
+                        {
+                            "include": "#string_placeholder"
+                        },
+                        {
+                            "include": "#line_continuation_character"
+                        }
+                    ]
+                },
+                {
+                    "begin": "'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.osl"
+                        }
+                    },
+                    "end": "'|(?<!\\\\)(?=\\s*\\n)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.osl"
+                        }
+                    },
+                    "name": "string.quoted.single.osl",
+                    "patterns": [
+                        {
+                            "include": "#string_escaped_char"
+                        },
+                        {
+                            "include": "#line_continuation_character"
+                        }
+                    ]
+                },
+                {
+                    "include": "#access"
+                },
+                {
+                    "include": "#libc"
+                },
+                {
+                    "include": "$base"
+                }
+            ]
+        },
+        "preprocessor-rule-define-line-blocks": {
+            "patterns": [
+                {
+                    "begin": "{",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.begin.bracket.curly.osl"
+                        }
+                    },
+                    "end": "}|(?=\\s*#\\s*(?:elif|else|endif)\\b)|(?<!\\\\)(?=\\s*\\n)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.block.end.bracket.curly.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-define-line-blocks"
+                        },
+                        {
+                            "include": "#preprocessor-rule-define-line-contents"
+                        }
+                    ]
+                },
+                {
+                    "include": "#preprocessor-rule-define-line-contents"
+                }
+            ]
+        },
+        "preprocessor-rule-define-line-functions": {
+            "patterns": [
+                {
+                    "include": "#comments"
+                },
+                {
+                    "include": "#storage_types"
+                },
+                {
+                    "include": "#vararg_ellipses"
+                },
+                {
+                    "include": "#access"
+                },
+                {
+                    "include": "#operators"
+                },
+                {
+                    "begin": "(?x)\n(?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()\n(\n(?:[A-Za-z_][A-Za-z0-9_]*+|::)++  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "entity.name.function.osl"
+                        },
+                        "2": {
+                            "name": "punctuation.section.arguments.begin.bracket.round.osl"
+                        }
+                    },
+                    "end": "(\\))|(?<!\\\\)(?=\\s*\\n)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.section.arguments.end.bracket.round.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-define-line-functions"
+                        }
+                    ]
+                },
+                {
+                    "begin": "\\(",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.parens.begin.bracket.round.osl"
+                        }
+                    },
+                    "end": "(\\))|(?<!\\\\)(?=\\s*\\n)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.section.parens.end.bracket.round.osl"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#preprocessor-rule-define-line-functions"
+                        }
+                    ]
+                },
+                {
+                    "include": "#preprocessor-rule-define-line-contents"
+                }
+            ]
+        },
+        "preprocessor-macro": {
+            "begin": "(?x)\n^\\s* ((\\#)\\s*define) \\s+    # define\n((?<id>[a-zA-Z_$][\\w$]*))      # macro name\n(?:\n  (\\()\n    (\n      \\s* \\g<id> \\s*         # first argument\n      ((,) \\s* \\g<id> \\s*)*  # additional arguments\n      (?:\\.\\.\\.)?            # varargs ellipsis?\n    )\n  (\\))\n)?",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control.directive.define.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                },
+                "3": {
+                    "name": "entity.name.function.preprocessor.osl"
+                },
+                "5": {
+                    "name": "punctuation.definition.parameters.begin.osl"
+                },
+                "6": {
+                    "name": "variable.parameter.preprocessor.osl"
+                },
+                "8": {
+                    "name": "punctuation.separator.parameters.osl"
+                },
+                "9": {
+                    "name": "punctuation.definition.parameters.end.osl"
+                }
+            },
+            "end": "(?=(?://|/\\*))|(?<!\\\\)(?=\\n)",
+            "name": "meta.preprocessor.macro.osl",
+            "patterns": [
+                {
+                    "include": "#preprocessor-rule-define-line-contents"
+                }
+            ]
+        },
+        "preprocessor-include": {
+            "begin": "^\\s*((#)\\s*(include))\\b\\s*",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control.directive.$3.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                }
+            },
+            "end": "(?=(?://|/\\*))|(?<!\\\\)(?=\\n)",
+            "name": "meta.preprocessor.include.osl",
+            "patterns": [
+                {
+                    "include": "#line_continuation_character"
+                },
+                {
+                    "begin": "\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.osl"
+                        }
+                    },
+                    "end": "\"",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.osl"
+                        }
+                    },
+                    "name": "string.quoted.double.include.osl"
+                },
+                {
+                    "begin": "<",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.osl"
+                        }
+                    },
+                    "end": ">",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.osl"
+                        }
+                    },
+                    "name": "string.quoted.other.lt-gt.include.osl"
+                }
+            ]
+        },
+        "preprocessor-undef": {
+            "begin": "^\\s*(?:((#)\\s*undef))\\b",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control.directive.undef.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                }
+            },
+            "end": "(?=(?://|/\\*))|(?<!\\\\)(?=\\n)",
+            "name": "meta.preprocessor.osl",
+            "patterns": [
+                {
+                    "match": "[a-zA-Z_$][\\w$]*",
+                    "name": "entity.name.function.preprocessor.osl"
+                },
+                {
+                    "include": "#line_continuation_character"
+                }
+            ]
+        },
+        "preprocessor-pragma": {
+            "begin": "^\\s*(?:((#)\\s*pragma))\\b",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control.directive.pragma.osl"
+                },
+                "2": {
+                    "name": "punctuation.definition.directive.osl"
+                }
+            },
+            "end": "(?=(?://|/\\*))|(?<!\\\\)(?=\\n)",
+            "name": "meta.preprocessor.pragma.osl",
+            "patterns": [
+                {
+                    "include": "#strings"
+                },
+                {
+                    "match": "[a-zA-Z_$][\\w\\-$]*",
+                    "name": "entity.other.attribute-name.pragma.preprocessor.osl"
+                },
+                {
+                    "include": "#numbers"
+                },
+                {
+                    "include": "#line_continuation_character"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.osl"
+}
