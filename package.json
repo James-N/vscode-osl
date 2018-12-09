@@ -2,7 +2,7 @@
     "name": "OpenShadingLanguage",
     "displayName": "OSL Support",
     "description": "Provides snippets, syntax highlighting in osl files based on osl language spec",
-    "icon": "./resource/images/osl-logo-large.png",
+    "icon": "resource/images/osl-logo-large.png",
     "version": "0.4.1",
     "publisher": "James-Ni",
     "license": "MIT",
@@ -16,7 +16,11 @@
     "keywords": [
 		"osl",
 		"shading"
-	],
+    ],
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/James-N/vscode-osl.git"
+	},
     "contributes": {
         "languages": [{
             "id": "osl",
