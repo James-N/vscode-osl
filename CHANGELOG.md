@@ -3,5 +3,5 @@ All notable changes to the "OpenShadingLanguage" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
-- Initial release
+## 0.4.1 (Dec 9, 2018)
+* Initial release
