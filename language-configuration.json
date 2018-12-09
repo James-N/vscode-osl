@@ -26,9 +26,9 @@
         ["\"", "\""]
     ],
     "folding": {
-		"markers": {
-			"start": "^\\s*#pragma\\s+region\\b",
-			"end": "^\\s*#pragma\\s+endregion\\b"
-		}
-	}
+        "markers": {
+            "start": "^\\s*#pragma\\s+region\\b",
+            "end": "^\\s*#pragma\\s+endregion\\b"
+        }
+    }
 }
