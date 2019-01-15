@@ -11,3 +11,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## 0.4.4 (Dec 11, 2018)
 * Fix missing file extension when saving osl source file.
+
+## 1.0.0 (Jan 15, 2019)
+* Add builtin function snippets

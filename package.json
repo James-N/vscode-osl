@@ -3,7 +3,7 @@
     "displayName": "OSL Support",
     "description": "Provides snippets, syntax highlighting in osl files based on osl language spec",
     "icon": "resource/images/osl-logo-large.png",
-    "version": "0.4.4",
+    "version": "1.0.0",
     "publisher": "James-Ni",
     "license": "MIT",
     "engines": {
