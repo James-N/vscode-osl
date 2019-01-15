@@ -1,0 +1,52 @@
+{
+    "Region Start": {
+        "prefix": "#region",
+        "body": [
+            "#pragma region $0"
+        ],
+        "description": "Folding Region Start"
+    },
+    "Region End": {
+        "prefix": "#endregion",
+        "body": [
+            "#pragma endregion"
+        ],
+        "description": "Folding Region End"
+    },
+    "Generic Shader": {
+        "prefix": "shader",
+        "body": [
+            "shader ${1:shadername} () {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Empty Generic Shader"
+    },
+    "Generic Shader Closure": {
+        "prefix": "shader",
+        "body": [
+            "shader ${1:shadername} (closure output color ${2:name} = ${3:0}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Generic Shader With Closure Output"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (int ${1:index} = 0; ${1:index} < ${2:end}; ${1:index}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For Loop"
+    },
+    "Function Define": {
+        "prefix": "fun",
+        "body": [
+            "${1:return_type} ${2:name} () {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function Defination"
+    }
+}

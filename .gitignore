@@ -1,2 +1,6 @@
 .vscode-test/**
+.vscode/settings.json
 vsc-extension-quickstart.md
+tools/output
+tools/__pycache__
+tools/spec.tex

@@ -1,0 +1,327 @@
+type radians(type deg)
+type degrees(type rad)
+
+type cos(type x)
+type sin(type x)
+type tan(type x)
+
+void sincos(type x, output type sinval, output type cosval)
+
+type acos(type x)
+type asin(type y)
+type atan(type y_over_x)
+type atan2(type y, type x)
+
+type cosh(type x)
+type sinh(type x)
+type tanh(type x)
+
+type pow(type x, type y)
+type pow(type x, float y)
+
+type exp(type x)
+type exp2(type x)
+type expm1(type x)
+
+type log(type x)
+type log2(type x)
+type log10(type x)
+type log(type x, float b)
+
+type logb(type x)
+
+type sqrt(type x)
+type inversesqrt(type x)
+
+float hypot(float x, float y)
+float hypot(float x, float y, float z)
+
+type abs(type x)
+type fabs(type x)
+
+type sign(type x)
+
+type floor(type x)
+type ceil(type x)
+type round(type x)
+type trunc(type x)
+
+type fmod(type a, type b)
+type mod(type a, type b)
+
+type min(type a, type b)
+type max(type a, type b)
+type clamp(type x, type minval, type maxval)
+
+type mix(type x, type y, type alpha)
+type mix(type x, type y, float alpha)
+
+type select(type x, type y, type cond)
+type select(type x, type y, float cond)
+type select(type x, type y, int cond)
+
+int isnan(float x)
+int isinf(float x)
+int isfinite(float x)
+
+float erf(float x)
+float erfc(float x)
+
+ptype ptype(float f)
+ptype ptype(float x, float y, float z)
+
+ptype ptype(string space, f)
+ptype ptype(string space, float x, float y, float z)
+
+float dot(vector A, vector B)
+
+vector cross(vector A, vector B)
+
+float length(vector V)
+float length(normal V)
+
+float distance(point P0, point P1)
+
+float distance(point P0, point P1, point Q)
+
+vector normalize(vector V)
+normal normalize(normal V)
+
+vector faceforward(vector N, vector I, vector Nref)
+vector faceforward(vector N, vector I)
+
+vector reflect(vector I, vector N)
+
+vector refract(vector I, vector N, float eta)
+
+point rotate(point Q, float angle, point P0, point P1)
+point rotate(point Q, float angle, vector axis)
+
+ptype transform(string tospace, ptype p)
+ptype transform(string fromspace, string tospace, ptype p)
+ptype transform(matrix Mto, ptype p)
+
+float transformu(string tounits, float x)
+float transformu(string fromunits, string tounits, float x)
+
+color color(float f)
+color color(float r, float g, float b)
+
+color color(string colorspace, f)
+color color(string colorspace, float r, float g, float b)
+
+float luminance(color rgb)
+
+color blackbody(float temperatureK)
+
+color wavelength_color(float wavelength_nm)
+
+color transformc(string fromspace, string tospace, color Cfrom)
+color transformc(string tospace, color Cfrom)
+
+matrix matrix(float f)
+
+matrix matrix(string fromspace, float m00, ..., float m33)
+matrix matrix(string fromspace, float f)
+
+matrix matrix(string fromspace, string tospace)
+
+int getmatrix(string fromspace, string tospace, output matrix M)
+
+float determinant(matrix M)
+
+matrix transpose(matrix M)
+
+float step(float edge, float x)
+type step(type edge, type x)
+
+float linearstep(float edge0, float edge1, float x)
+
+float smoothstep(float edge0, float edge1, float x)
+type smoothstep(type edge0, type edge1, type x)
+
+float smooth_linearstep(float edge0, float edge1, float x, float eps)
+
+type noise(string noisetype, float u, ...)
+type noise(string noisetype, float u, float v, ...)
+type noise(string noisetype, point p, ...)
+type noise(string noisetype, point p, float t, ...)
+
+type pnoise(string noisetype, float u, float uperiod)
+type pnoise(string noisetype, float u, float v, float uperiod, float vperiod)
+type pnoise(string noisetype, point p, point pperiod)
+type pnoise(string noisetype, point p, float t, point pperiod, float tperiod)
+
+type noise(float u)
+type noise(float u, float v)
+type noise(point p)
+type noise(point p, float t)
+type snoise(float u)
+type snoise(float u, float v)
+type snoise(point p)
+type snoise(point p, float t)
+
+type pnoise(float u, float uperiod)
+type pnoise(float u, float v, float uperiod, float vperiod)
+type pnoise(point p, point pperiod)
+type pnoise(point p, float t, point pperiod, float tperiod)
+type psnoise(float u, float uperiod)
+type psnoise(float u, float v, float uperiod, float vperiod)
+type psnoise(point p, point pperiod)
+type psnoise(point p, float t, point pperiod, float tperiod)
+
+type cellnoise(float u)
+type cellnoise(float u, float v)
+type cellnoise(point p)
+type cellnoise(point p, float t)
+
+type hashnoise(float u)
+type hashnoise(float u, float v)
+type hashnoise(point p)
+type hashnoise(point p, float t)
+
+int hash(float u)
+int hash(float u, float v)
+int hash(point p)
+int hash(point p, float t)
+int hash(int i)
+
+type spline(string basis, float x, type y0, type y1, ...)
+type spline(string basis, float x, type y[])
+type spline(string basis, float x, int nknots, type y[])
+
+float splineinverse(string basis, float v, float y0, ...)
+float splineinverse(string basis, float v, float y[])
+float splineinverse(string basis, float v, int nknots, float y[])
+
+float Dx(float a)
+float Dy(float a)
+float Dz(float a)
+vector Dx(point a)
+point Dy(point a)
+point Dz(point a)
+vector Dx(vector a)
+vector Dy(vector a)
+vector Dz(vector a)
+color Dx(color a)
+color Dy(color a)
+color Dz(color a)
+
+float filterwidth(float x)
+vector filterwidth(point x)
+vector filterwidth(vector x)
+
+float area(point p)
+
+vector calculatenormal(point p)
+
+float aastep(float edge, float s)
+float aastep(float edge, float s, float ds)
+float aastep(float edge, float s, float dedge, float ds)
+
+void displace(float amp)
+void displace(string space, float amp)
+void displace(vector offset)
+
+void bump(float amp)
+void bump(string space, float amp)
+void bump(vector offset)
+
+void printf(string fmt, ...)
+
+string format(string fmt, ...)
+
+void error(string fmt, ...)
+void warning(string fmt, ...)
+
+void fprintf(string filename, string fmt, ...)
+
+string concat(string s1, ..., string sN)
+
+int strlen(string s)
+
+int startswith(string s, string prefix)
+
+int endswith(string s, string suffix)
+
+int stoi(string str)
+
+float stof(string str)
+
+int split(string str, output string results[], string sep, int maxsplit)
+int split(string str, output string results[], string sep)
+int split(string str, output string results[])
+
+string substr(string s, int start, int length)
+string substr(string s, int start)
+
+int getchar(string s, int n)
+
+int hash(string s)
+
+int regex_search(string subject, string regex)
+int regex_search(string subject, int results[], string regex)
+
+int regex_match(string subject, string regex)
+int regex_match(string subject, int results[], string regex)
+
+closure color diffuse(normal N)
+
+closure color phong(normal N, float exponent)
+
+closure color oren_nayar(normal N, float sigma)
+
+closure color ward(normal N, vector T, float xrough, float yrough)
+
+closure color microfacet(string distribution, normal N, vector U, float xalpha, float yalpha, float eta, int refract)
+
+closure color microfacet(string distribution, normal N, float alpha, float eta, int refract)
+
+closure color reflection(normal N, float eta)
+
+closure color refraction(normal N, float eta)
+
+closure color transparent()
+
+closure color translucent()
+
+closure color subsurface()
+
+closure color isotropic()
+
+closure color henyey_greenstein(float g)
+
+closure color absorption()
+
+closure color emission()
+
+closure color background()
+
+closure color holdout()
+
+closure color debug(string outputname)
+
+int getattribute(string name, output type destination)
+int getattribute(string object, string name, output type destination)
+
+void setmessage(string name, output type value)
+
+int getmessage(string source, string name, output type destination)
+
+int raytype(string name)
+
+int isconnected(type parameter)
+
+int isconstant(type expr)
+
+int dict_find(string dictionary, string query)
+int dict_find(int nodeID, string query)
+
+int dict_next(int nodeID)
+
+int dict_value(int nodeID, string attribname, output type value)
+
+int trace(point pos, vector dir, ...)
+
+int arraylength(type A[])
+
