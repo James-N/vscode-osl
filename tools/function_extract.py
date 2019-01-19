@@ -134,13 +134,16 @@ def extract_function_info(reader, init_line):
                 if len(line) > 0:
                     # discard empty lines
                     output.append(line)
+
                 line = reader.readline()
+                if len(line) == 0:
+                    return ' '.join(output)
 
     result = []
 
     line = read_next_func_chunk(init_line)
     while True:
-        if line.startswith(API_ITEM_END_DIREC) or line.startswith(API_INDEX_DIREC):
+        if len(line) == 0 or line.startswith(API_ITEM_END_DIREC) or line.startswith(API_INDEX_DIREC):
             return result
         else:
             pos = 0
@@ -160,7 +163,7 @@ def extract_function_info(reader, init_line):
 def scan_api_functions(reader):
     while True:
         line = reader.readline()
-        if not line.startswith(CHAPTER_ITEM_DIREC):
+        if len(line) > 0 and not line.startswith(CHAPTER_ITEM_DIREC):
             if line.startswith(API_ITEM_DIREC):
                 result = extract_function_info(reader, line)
                 if result is not None and len(result) > 0:
@@ -195,8 +198,7 @@ def extract_from_file(specfile):
     with open(specfile, 'r') as inf:
         if read_until_first_function_line(inf):
             for func_group in scan_api_functions(inf):
-                for func in func_group:
-                    yield func
+                yield from func_group
 
 def main():
     # testing

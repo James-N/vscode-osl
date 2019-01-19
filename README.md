@@ -2,6 +2,7 @@
 
 [![Version](https://vsmarketplacebadge.apphb.com/version/James-Ni.OpenShadingLanguage.svg)](https://marketplace.visualstudio.com/items?itemName=James-Ni.OpenShadingLanguage)
 [![Installs](https://vsmarketplacebadge.apphb.com/installs/James-Ni.OpenShadingLanguage.svg)](https://marketplace.visualstudio.com/items?itemName=James-Ni.OpenShadingLanguage)
+[![Downloads](https://vsmarketplacebadge.apphb.com/downloads/James-Ni.OpenShadingLanguage.svg)](https://marketplace.visualstudio.com/items?itemName=James-Ni.OpenShadingLanguage)
 
 ### What is OSL?
 
