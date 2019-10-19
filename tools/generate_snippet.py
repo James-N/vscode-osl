@@ -8,7 +8,7 @@ import spec_download
 import function_extract
 
 
-SCOPE_OSL = 'souce.osl'
+SCOPE_OSL = 'source.osl'
 
 def load_snippet_template(fpath):
     with open(fpath, 'r') as inf:
