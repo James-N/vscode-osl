@@ -14,3 +14,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## 1.0.0 (Jan 15, 2019)
 * Add builtin function snippets
+
+## 1.1.0 (Oct 19, 2019)
+* Builtin function update
+* Fix snippet scope misspell

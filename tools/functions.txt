@@ -136,11 +136,13 @@ float step(float edge, float x)
 type step(type edge, type x)
 
 float linearstep(float edge0, float edge1, float x)
+type linearstep(type edge0, type edge1, type x)
 
 float smoothstep(float edge0, float edge1, float x)
 type smoothstep(type edge0, type edge1, type x)
 
 float smooth_linearstep(float edge0, float edge1, float x, float eps)
+type smooth_linearstep(type edge0, type edge1, type x, type eps)
 
 type noise(string noisetype, float u, ...)
 type noise(string noisetype, float u, float v, ...)
