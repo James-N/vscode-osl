@@ -33,6 +33,8 @@ type logb(type x)
 type sqrt(type x)
 type inversesqrt(type x)
 
+type cbrt(type x)
+
 float hypot(float x, float y)
 float hypot(float x, float y, float z)
 

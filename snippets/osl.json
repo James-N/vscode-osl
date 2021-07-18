@@ -53,1296 +53,1314 @@
         "description": "type radians(type deg)",
         "prefix": "radians(deg)",
         "body": "radians(${1:type deg})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "degrees": {
         "description": "type degrees(type rad)",
         "prefix": "degrees(rad)",
         "body": "degrees(${1:type rad})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "cos": {
         "description": "type cos(type x)",
         "prefix": "cos(x)",
         "body": "cos(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "sin": {
         "description": "type sin(type x)",
         "prefix": "sin(x)",
         "body": "sin(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "tan": {
         "description": "type tan(type x)",
         "prefix": "tan(x)",
         "body": "tan(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "sincos": {
         "description": "void sincos(type x, output type sinval, output type cosval)",
         "prefix": "sincos(x, sinval, cosval)",
         "body": "sincos(${1:type x}, ${2:output type sinval}, ${3:output type cosval})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "acos": {
         "description": "type acos(type x)",
         "prefix": "acos(x)",
         "body": "acos(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "asin": {
         "description": "type asin(type y)",
         "prefix": "asin(y)",
         "body": "asin(${1:type y})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "atan": {
         "description": "type atan(type y_over_x)",
         "prefix": "atan(y_over_x)",
         "body": "atan(${1:type y_over_x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "atan2": {
         "description": "type atan2(type y, type x)",
         "prefix": "atan2(y, x)",
         "body": "atan2(${1:type y}, ${2:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "cosh": {
         "description": "type cosh(type x)",
         "prefix": "cosh(x)",
         "body": "cosh(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "sinh": {
         "description": "type sinh(type x)",
         "prefix": "sinh(x)",
         "body": "sinh(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "tanh": {
         "description": "type tanh(type x)",
         "prefix": "tanh(x)",
         "body": "tanh(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pow": {
         "description": "type pow(type x, type y)",
         "prefix": "pow(x, y)",
         "body": "pow(${1:type x}, ${2:type y})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pow_1": {
         "description": "type pow(type x, float y)",
         "prefix": "pow(x, y)",
         "body": "pow(${1:type x}, ${2:float y})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "exp": {
         "description": "type exp(type x)",
         "prefix": "exp(x)",
         "body": "exp(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "exp2": {
         "description": "type exp2(type x)",
         "prefix": "exp2(x)",
         "body": "exp2(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "expm1": {
         "description": "type expm1(type x)",
         "prefix": "expm1(x)",
         "body": "expm1(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "log": {
         "description": "type log(type x)",
         "prefix": "log(x)",
         "body": "log(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "log2": {
         "description": "type log2(type x)",
         "prefix": "log2(x)",
         "body": "log2(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "log10": {
         "description": "type log10(type x)",
         "prefix": "log10(x)",
         "body": "log10(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "log_1": {
         "description": "type log(type x, float b)",
         "prefix": "log(x, b)",
         "body": "log(${1:type x}, ${2:float b})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "logb": {
         "description": "type logb(type x)",
         "prefix": "logb(x)",
         "body": "logb(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "sqrt": {
         "description": "type sqrt(type x)",
         "prefix": "sqrt(x)",
         "body": "sqrt(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "inversesqrt": {
         "description": "type inversesqrt(type x)",
         "prefix": "inversesqrt(x)",
         "body": "inversesqrt(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
+    },
+    "cbrt": {
+        "description": "type cbrt(type x)",
+        "prefix": "cbrt(x)",
+        "body": "cbrt(${1:type x})",
+        "scope": "source.osl"
     },
     "hypot": {
         "description": "float hypot(float x, float y)",
         "prefix": "hypot(x, y)",
         "body": "hypot(${1:float x}, ${2:float y})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hypot_1": {
         "description": "float hypot(float x, float y, float z)",
         "prefix": "hypot(x, y, z)",
         "body": "hypot(${1:float x}, ${2:float y}, ${3:float z})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "abs": {
         "description": "type abs(type x)",
         "prefix": "abs(x)",
         "body": "abs(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "fabs": {
         "description": "type fabs(type x)",
         "prefix": "fabs(x)",
         "body": "fabs(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "sign": {
         "description": "type sign(type x)",
         "prefix": "sign(x)",
         "body": "sign(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "floor": {
         "description": "type floor(type x)",
         "prefix": "floor(x)",
         "body": "floor(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "ceil": {
         "description": "type ceil(type x)",
         "prefix": "ceil(x)",
         "body": "ceil(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "round": {
         "description": "type round(type x)",
         "prefix": "round(x)",
         "body": "round(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "trunc": {
         "description": "type trunc(type x)",
         "prefix": "trunc(x)",
         "body": "trunc(${1:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "fmod": {
         "description": "type fmod(type a, type b)",
         "prefix": "fmod(a, b)",
         "body": "fmod(${1:type a}, ${2:type b})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "mod": {
         "description": "type mod(type a, type b)",
         "prefix": "mod(a, b)",
         "body": "mod(${1:type a}, ${2:type b})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "min": {
         "description": "type min(type a, type b)",
         "prefix": "min(a, b)",
         "body": "min(${1:type a}, ${2:type b})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "max": {
         "description": "type max(type a, type b)",
         "prefix": "max(a, b)",
         "body": "max(${1:type a}, ${2:type b})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "clamp": {
         "description": "type clamp(type x, type minval, type maxval)",
         "prefix": "clamp(x, minval, maxval)",
         "body": "clamp(${1:type x}, ${2:type minval}, ${3:type maxval})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "mix": {
         "description": "type mix(type x, type y, type alpha)",
         "prefix": "mix(x, y, alpha)",
         "body": "mix(${1:type x}, ${2:type y}, ${3:type alpha})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "mix_1": {
         "description": "type mix(type x, type y, float alpha)",
         "prefix": "mix(x, y, alpha)",
         "body": "mix(${1:type x}, ${2:type y}, ${3:float alpha})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "select": {
         "description": "type select(type x, type y, type cond)",
         "prefix": "select(x, y, cond)",
         "body": "select(${1:type x}, ${2:type y}, ${3:type cond})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "select_1": {
         "description": "type select(type x, type y, float cond)",
         "prefix": "select(x, y, cond)",
         "body": "select(${1:type x}, ${2:type y}, ${3:float cond})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "select_2": {
         "description": "type select(type x, type y, int cond)",
         "prefix": "select(x, y, cond)",
         "body": "select(${1:type x}, ${2:type y}, ${3:int cond})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "isnan": {
         "description": "int isnan(float x)",
         "prefix": "isnan(x)",
         "body": "isnan(${1:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "isinf": {
         "description": "int isinf(float x)",
         "prefix": "isinf(x)",
         "body": "isinf(${1:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "isfinite": {
         "description": "int isfinite(float x)",
         "prefix": "isfinite(x)",
         "body": "isfinite(${1:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "erf": {
         "description": "float erf(float x)",
         "prefix": "erf(x)",
         "body": "erf(${1:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "erfc": {
         "description": "float erfc(float x)",
         "prefix": "erfc(x)",
         "body": "erfc(${1:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "ptype": {
         "description": "ptype ptype(float f)",
         "prefix": "ptype(f)",
         "body": "ptype(${1:float f})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "ptype_1": {
         "description": "ptype ptype(float x, float y, float z)",
         "prefix": "ptype(x, y, z)",
         "body": "ptype(${1:float x}, ${2:float y}, ${3:float z})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "ptype_2": {
         "description": "ptype ptype(string space, f)",
         "prefix": "ptype(space, f)",
         "body": "ptype(${1:string space}, ${2:f})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "ptype_3": {
         "description": "ptype ptype(string space, float x, float y, float z)",
         "prefix": "ptype(space, x, y, z)",
         "body": "ptype(${1:string space}, ${2:float x}, ${3:float y}, ${4:float z})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "dot": {
         "description": "float dot(vector A, vector B)",
         "prefix": "dot(A, B)",
         "body": "dot(${1:vector A}, ${2:vector B})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "cross": {
         "description": "vector cross(vector A, vector B)",
         "prefix": "cross(A, B)",
         "body": "cross(${1:vector A}, ${2:vector B})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "length": {
         "description": "float length(vector V)",
         "prefix": "length(V)",
         "body": "length(${1:vector V})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "length_1": {
         "description": "float length(normal V)",
         "prefix": "length(V)",
         "body": "length(${1:normal V})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "distance": {
         "description": "float distance(point P0, point P1)",
         "prefix": "distance(P0, P1)",
         "body": "distance(${1:point P0}, ${2:point P1})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "distance_1": {
         "description": "float distance(point P0, point P1, point Q)",
         "prefix": "distance(P0, P1, Q)",
         "body": "distance(${1:point P0}, ${2:point P1}, ${3:point Q})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "normalize": {
         "description": "vector normalize(vector V)",
         "prefix": "normalize(V)",
         "body": "normalize(${1:vector V})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "normalize_1": {
         "description": "normal normalize(normal V)",
         "prefix": "normalize(V)",
         "body": "normalize(${1:normal V})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "faceforward": {
         "description": "vector faceforward(vector N, vector I, vector Nref)",
         "prefix": "faceforward(N, I, Nref)",
         "body": "faceforward(${1:vector N}, ${2:vector I}, ${3:vector Nref})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "faceforward_1": {
         "description": "vector faceforward(vector N, vector I)",
         "prefix": "faceforward(N, I)",
         "body": "faceforward(${1:vector N}, ${2:vector I})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "reflect": {
         "description": "vector reflect(vector I, vector N)",
         "prefix": "reflect(I, N)",
         "body": "reflect(${1:vector I}, ${2:vector N})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "refract": {
         "description": "vector refract(vector I, vector N, float eta)",
         "prefix": "refract(I, N, eta)",
         "body": "refract(${1:vector I}, ${2:vector N}, ${3:float eta})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "rotate": {
         "description": "point rotate(point Q, float angle, point P0, point P1)",
         "prefix": "rotate(Q, angle, P0, P1)",
         "body": "rotate(${1:point Q}, ${2:float angle}, ${3:point P0}, ${4:point P1})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "rotate_1": {
         "description": "point rotate(point Q, float angle, vector axis)",
         "prefix": "rotate(Q, angle, axis)",
         "body": "rotate(${1:point Q}, ${2:float angle}, ${3:vector axis})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transform": {
         "description": "ptype transform(string tospace, ptype p)",
         "prefix": "transform(tospace, p)",
         "body": "transform(${1:string tospace}, ${2:ptype p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transform_1": {
         "description": "ptype transform(string fromspace, string tospace, ptype p)",
         "prefix": "transform(fromspace, tospace, p)",
         "body": "transform(${1:string fromspace}, ${2:string tospace}, ${3:ptype p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transform_2": {
         "description": "ptype transform(matrix Mto, ptype p)",
         "prefix": "transform(Mto, p)",
         "body": "transform(${1:matrix Mto}, ${2:ptype p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transformu": {
         "description": "float transformu(string tounits, float x)",
         "prefix": "transformu(tounits, x)",
         "body": "transformu(${1:string tounits}, ${2:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transformu_1": {
         "description": "float transformu(string fromunits, string tounits, float x)",
         "prefix": "transformu(fromunits, tounits, x)",
         "body": "transformu(${1:string fromunits}, ${2:string tounits}, ${3:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "color": {
         "description": "color color(float f)",
         "prefix": "color(f)",
         "body": "color(${1:float f})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "color_1": {
         "description": "color color(float r, float g, float b)",
         "prefix": "color(r, g, b)",
         "body": "color(${1:float r}, ${2:float g}, ${3:float b})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "color_2": {
         "description": "color color(string colorspace, f)",
         "prefix": "color(colorspace, f)",
         "body": "color(${1:string colorspace}, ${2:f})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "color_3": {
         "description": "color color(string colorspace, float r, float g, float b)",
         "prefix": "color(colorspace, r, g, b)",
         "body": "color(${1:string colorspace}, ${2:float r}, ${3:float g}, ${4:float b})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "luminance": {
         "description": "float luminance(color rgb)",
         "prefix": "luminance(rgb)",
         "body": "luminance(${1:color rgb})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "blackbody": {
         "description": "color blackbody(float temperatureK)",
         "prefix": "blackbody(temperatureK)",
         "body": "blackbody(${1:float temperatureK})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "wavelength_color": {
         "description": "color wavelength_color(float wavelength_nm)",
         "prefix": "wavelength_color(wavelength_nm)",
         "body": "wavelength_color(${1:float wavelength_nm})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transformc": {
         "description": "color transformc(string fromspace, string tospace, color Cfrom)",
         "prefix": "transformc(fromspace, tospace, Cfrom)",
         "body": "transformc(${1:string fromspace}, ${2:string tospace}, ${3:color Cfrom})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transformc_1": {
         "description": "color transformc(string tospace, color Cfrom)",
         "prefix": "transformc(tospace, Cfrom)",
         "body": "transformc(${1:string tospace}, ${2:color Cfrom})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "matrix": {
         "description": "matrix matrix(float f)",
         "prefix": "matrix(f)",
         "body": "matrix(${1:float f})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "matrix_1": {
         "description": "matrix matrix(string fromspace, float m00, ..., float m33)",
         "prefix": "matrix(fromspace, m00, ..., m33)",
         "body": "matrix(${1:string fromspace}, ${2:float m00}, ${3:...}, ${4:float m33})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "matrix_2": {
         "description": "matrix matrix(string fromspace, float f)",
         "prefix": "matrix(fromspace, f)",
         "body": "matrix(${1:string fromspace}, ${2:float f})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "matrix_3": {
         "description": "matrix matrix(string fromspace, string tospace)",
         "prefix": "matrix(fromspace, tospace)",
         "body": "matrix(${1:string fromspace}, ${2:string tospace})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "getmatrix": {
         "description": "int getmatrix(string fromspace, string tospace, output matrix M)",
         "prefix": "getmatrix(fromspace, tospace, M)",
         "body": "getmatrix(${1:string fromspace}, ${2:string tospace}, ${3:output matrix M})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "determinant": {
         "description": "float determinant(matrix M)",
         "prefix": "determinant(M)",
         "body": "determinant(${1:matrix M})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transpose": {
         "description": "matrix transpose(matrix M)",
         "prefix": "transpose(M)",
         "body": "transpose(${1:matrix M})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "step": {
         "description": "float step(float edge, float x)",
         "prefix": "step(edge, x)",
         "body": "step(${1:float edge}, ${2:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "step_1": {
         "description": "type step(type edge, type x)",
         "prefix": "step(edge, x)",
         "body": "step(${1:type edge}, ${2:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "linearstep": {
         "description": "float linearstep(float edge0, float edge1, float x)",
         "prefix": "linearstep(edge0, edge1, x)",
         "body": "linearstep(${1:float edge0}, ${2:float edge1}, ${3:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
+    },
+    "linearstep_1": {
+        "description": "type linearstep(type edge0, type edge1, type x)",
+        "prefix": "linearstep(edge0, edge1, x)",
+        "body": "linearstep(${1:type edge0}, ${2:type edge1}, ${3:type x})",
+        "scope": "source.osl"
     },
     "smoothstep": {
         "description": "float smoothstep(float edge0, float edge1, float x)",
         "prefix": "smoothstep(edge0, edge1, x)",
         "body": "smoothstep(${1:float edge0}, ${2:float edge1}, ${3:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "smoothstep_1": {
         "description": "type smoothstep(type edge0, type edge1, type x)",
         "prefix": "smoothstep(edge0, edge1, x)",
         "body": "smoothstep(${1:type edge0}, ${2:type edge1}, ${3:type x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "smooth_linearstep": {
         "description": "float smooth_linearstep(float edge0, float edge1, float x, float eps)",
         "prefix": "smooth_linearstep(edge0, edge1, x, eps)",
         "body": "smooth_linearstep(${1:float edge0}, ${2:float edge1}, ${3:float x}, ${4:float eps})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
+    },
+    "smooth_linearstep_1": {
+        "description": "type smooth_linearstep(type edge0, type edge1, type x, type eps)",
+        "prefix": "smooth_linearstep(edge0, edge1, x, eps)",
+        "body": "smooth_linearstep(${1:type edge0}, ${2:type edge1}, ${3:type x}, ${4:type eps})",
+        "scope": "source.osl"
     },
     "noise": {
         "description": "type noise(string noisetype, float u, ...)",
         "prefix": "noise(noisetype, u, ...)",
         "body": "noise(${1:string noisetype}, ${2:float u}, ${3:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "noise_1": {
         "description": "type noise(string noisetype, float u, float v, ...)",
         "prefix": "noise(noisetype, u, v, ...)",
         "body": "noise(${1:string noisetype}, ${2:float u}, ${3:float v}, ${4:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "noise_2": {
         "description": "type noise(string noisetype, point p, ...)",
         "prefix": "noise(noisetype, p, ...)",
         "body": "noise(${1:string noisetype}, ${2:point p}, ${3:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "noise_3": {
         "description": "type noise(string noisetype, point p, float t, ...)",
         "prefix": "noise(noisetype, p, t, ...)",
         "body": "noise(${1:string noisetype}, ${2:point p}, ${3:float t}, ${4:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pnoise": {
         "description": "type pnoise(string noisetype, float u, float uperiod)",
         "prefix": "pnoise(noisetype, u, uperiod)",
         "body": "pnoise(${1:string noisetype}, ${2:float u}, ${3:float uperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pnoise_1": {
         "description": "type pnoise(string noisetype, float u, float v, float uperiod, float vperiod)",
         "prefix": "pnoise(noisetype, u, v, uperiod, vperiod)",
         "body": "pnoise(${1:string noisetype}, ${2:float u}, ${3:float v}, ${4:float uperiod}, ${5:float vperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pnoise_2": {
         "description": "type pnoise(string noisetype, point p, point pperiod)",
         "prefix": "pnoise(noisetype, p, pperiod)",
         "body": "pnoise(${1:string noisetype}, ${2:point p}, ${3:point pperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pnoise_3": {
         "description": "type pnoise(string noisetype, point p, float t, point pperiod, float tperiod)",
         "prefix": "pnoise(noisetype, p, t, pperiod, tperiod)",
         "body": "pnoise(${1:string noisetype}, ${2:point p}, ${3:float t}, ${4:point pperiod}, ${5:float tperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "noise_4": {
         "description": "type noise(float u)",
         "prefix": "noise(u)",
         "body": "noise(${1:float u})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "noise_5": {
         "description": "type noise(float u, float v)",
         "prefix": "noise(u, v)",
         "body": "noise(${1:float u}, ${2:float v})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "noise_6": {
         "description": "type noise(point p)",
         "prefix": "noise(p)",
         "body": "noise(${1:point p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "noise_7": {
         "description": "type noise(point p, float t)",
         "prefix": "noise(p, t)",
         "body": "noise(${1:point p}, ${2:float t})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "snoise": {
         "description": "type snoise(float u)",
         "prefix": "snoise(u)",
         "body": "snoise(${1:float u})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "snoise_1": {
         "description": "type snoise(float u, float v)",
         "prefix": "snoise(u, v)",
         "body": "snoise(${1:float u}, ${2:float v})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "snoise_2": {
         "description": "type snoise(point p)",
         "prefix": "snoise(p)",
         "body": "snoise(${1:point p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "snoise_3": {
         "description": "type snoise(point p, float t)",
         "prefix": "snoise(p, t)",
         "body": "snoise(${1:point p}, ${2:float t})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pnoise_4": {
         "description": "type pnoise(float u, float uperiod)",
         "prefix": "pnoise(u, uperiod)",
         "body": "pnoise(${1:float u}, ${2:float uperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pnoise_5": {
         "description": "type pnoise(float u, float v, float uperiod, float vperiod)",
         "prefix": "pnoise(u, v, uperiod, vperiod)",
         "body": "pnoise(${1:float u}, ${2:float v}, ${3:float uperiod}, ${4:float vperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pnoise_6": {
         "description": "type pnoise(point p, point pperiod)",
         "prefix": "pnoise(p, pperiod)",
         "body": "pnoise(${1:point p}, ${2:point pperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "pnoise_7": {
         "description": "type pnoise(point p, float t, point pperiod, float tperiod)",
         "prefix": "pnoise(p, t, pperiod, tperiod)",
         "body": "pnoise(${1:point p}, ${2:float t}, ${3:point pperiod}, ${4:float tperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "psnoise": {
         "description": "type psnoise(float u, float uperiod)",
         "prefix": "psnoise(u, uperiod)",
         "body": "psnoise(${1:float u}, ${2:float uperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "psnoise_1": {
         "description": "type psnoise(float u, float v, float uperiod, float vperiod)",
         "prefix": "psnoise(u, v, uperiod, vperiod)",
         "body": "psnoise(${1:float u}, ${2:float v}, ${3:float uperiod}, ${4:float vperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "psnoise_2": {
         "description": "type psnoise(point p, point pperiod)",
         "prefix": "psnoise(p, pperiod)",
         "body": "psnoise(${1:point p}, ${2:point pperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "psnoise_3": {
         "description": "type psnoise(point p, float t, point pperiod, float tperiod)",
         "prefix": "psnoise(p, t, pperiod, tperiod)",
         "body": "psnoise(${1:point p}, ${2:float t}, ${3:point pperiod}, ${4:float tperiod})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "cellnoise": {
         "description": "type cellnoise(float u)",
         "prefix": "cellnoise(u)",
         "body": "cellnoise(${1:float u})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "cellnoise_1": {
         "description": "type cellnoise(float u, float v)",
         "prefix": "cellnoise(u, v)",
         "body": "cellnoise(${1:float u}, ${2:float v})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "cellnoise_2": {
         "description": "type cellnoise(point p)",
         "prefix": "cellnoise(p)",
         "body": "cellnoise(${1:point p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "cellnoise_3": {
         "description": "type cellnoise(point p, float t)",
         "prefix": "cellnoise(p, t)",
         "body": "cellnoise(${1:point p}, ${2:float t})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hashnoise": {
         "description": "type hashnoise(float u)",
         "prefix": "hashnoise(u)",
         "body": "hashnoise(${1:float u})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hashnoise_1": {
         "description": "type hashnoise(float u, float v)",
         "prefix": "hashnoise(u, v)",
         "body": "hashnoise(${1:float u}, ${2:float v})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hashnoise_2": {
         "description": "type hashnoise(point p)",
         "prefix": "hashnoise(p)",
         "body": "hashnoise(${1:point p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hashnoise_3": {
         "description": "type hashnoise(point p, float t)",
         "prefix": "hashnoise(p, t)",
         "body": "hashnoise(${1:point p}, ${2:float t})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hash": {
         "description": "int hash(float u)",
         "prefix": "hash(u)",
         "body": "hash(${1:float u})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hash_1": {
         "description": "int hash(float u, float v)",
         "prefix": "hash(u, v)",
         "body": "hash(${1:float u}, ${2:float v})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hash_2": {
         "description": "int hash(point p)",
         "prefix": "hash(p)",
         "body": "hash(${1:point p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hash_3": {
         "description": "int hash(point p, float t)",
         "prefix": "hash(p, t)",
         "body": "hash(${1:point p}, ${2:float t})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hash_4": {
         "description": "int hash(int i)",
         "prefix": "hash(i)",
         "body": "hash(${1:int i})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "spline": {
         "description": "type spline(string basis, float x, type y0, type y1, ...)",
         "prefix": "spline(basis, x, y0, y1, ...)",
         "body": "spline(${1:string basis}, ${2:float x}, ${3:type y0}, ${4:type y1}, ${5:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "spline_1": {
         "description": "type spline(string basis, float x, type y[])",
         "prefix": "spline(basis, x, y[])",
         "body": "spline(${1:string basis}, ${2:float x}, ${3:type y[]})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "spline_2": {
         "description": "type spline(string basis, float x, int nknots, type y[])",
         "prefix": "spline(basis, x, nknots, y[])",
         "body": "spline(${1:string basis}, ${2:float x}, ${3:int nknots}, ${4:type y[]})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "splineinverse": {
         "description": "float splineinverse(string basis, float v, float y0, ...)",
         "prefix": "splineinverse(basis, v, y0, ...)",
         "body": "splineinverse(${1:string basis}, ${2:float v}, ${3:float y0}, ${4:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "splineinverse_1": {
         "description": "float splineinverse(string basis, float v, float y[])",
         "prefix": "splineinverse(basis, v, y[])",
         "body": "splineinverse(${1:string basis}, ${2:float v}, ${3:float y[]})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "splineinverse_2": {
         "description": "float splineinverse(string basis, float v, int nknots, float y[])",
         "prefix": "splineinverse(basis, v, nknots, y[])",
         "body": "splineinverse(${1:string basis}, ${2:float v}, ${3:int nknots}, ${4:float y[]})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dx": {
         "description": "float Dx(float a)",
         "prefix": "Dx(a)",
         "body": "Dx(${1:float a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dy": {
         "description": "float Dy(float a)",
         "prefix": "Dy(a)",
         "body": "Dy(${1:float a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dz": {
         "description": "float Dz(float a)",
         "prefix": "Dz(a)",
         "body": "Dz(${1:float a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dx_1": {
         "description": "vector Dx(point a)",
         "prefix": "Dx(a)",
         "body": "Dx(${1:point a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dy_1": {
         "description": "point Dy(point a)",
         "prefix": "Dy(a)",
         "body": "Dy(${1:point a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dz_1": {
         "description": "point Dz(point a)",
         "prefix": "Dz(a)",
         "body": "Dz(${1:point a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dx_2": {
         "description": "vector Dx(vector a)",
         "prefix": "Dx(a)",
         "body": "Dx(${1:vector a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dy_2": {
         "description": "vector Dy(vector a)",
         "prefix": "Dy(a)",
         "body": "Dy(${1:vector a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dz_2": {
         "description": "vector Dz(vector a)",
         "prefix": "Dz(a)",
         "body": "Dz(${1:vector a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dx_3": {
         "description": "color Dx(color a)",
         "prefix": "Dx(a)",
         "body": "Dx(${1:color a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dy_3": {
         "description": "color Dy(color a)",
         "prefix": "Dy(a)",
         "body": "Dy(${1:color a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "Dz_3": {
         "description": "color Dz(color a)",
         "prefix": "Dz(a)",
         "body": "Dz(${1:color a})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "filterwidth": {
         "description": "float filterwidth(float x)",
         "prefix": "filterwidth(x)",
         "body": "filterwidth(${1:float x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "filterwidth_1": {
         "description": "vector filterwidth(point x)",
         "prefix": "filterwidth(x)",
         "body": "filterwidth(${1:point x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "filterwidth_2": {
         "description": "vector filterwidth(vector x)",
         "prefix": "filterwidth(x)",
         "body": "filterwidth(${1:vector x})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "area": {
         "description": "float area(point p)",
         "prefix": "area(p)",
         "body": "area(${1:point p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "calculatenormal": {
         "description": "vector calculatenormal(point p)",
         "prefix": "calculatenormal(p)",
         "body": "calculatenormal(${1:point p})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "aastep": {
         "description": "float aastep(float edge, float s)",
         "prefix": "aastep(edge, s)",
         "body": "aastep(${1:float edge}, ${2:float s})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "aastep_1": {
         "description": "float aastep(float edge, float s, float ds)",
         "prefix": "aastep(edge, s, ds)",
         "body": "aastep(${1:float edge}, ${2:float s}, ${3:float ds})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "aastep_2": {
         "description": "float aastep(float edge, float s, float dedge, float ds)",
         "prefix": "aastep(edge, s, dedge, ds)",
         "body": "aastep(${1:float edge}, ${2:float s}, ${3:float dedge}, ${4:float ds})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "displace": {
         "description": "void displace(float amp)",
         "prefix": "displace(amp)",
         "body": "displace(${1:float amp})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "displace_1": {
         "description": "void displace(string space, float amp)",
         "prefix": "displace(space, amp)",
         "body": "displace(${1:string space}, ${2:float amp})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "displace_2": {
         "description": "void displace(vector offset)",
         "prefix": "displace(offset)",
         "body": "displace(${1:vector offset})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "bump": {
         "description": "void bump(float amp)",
         "prefix": "bump(amp)",
         "body": "bump(${1:float amp})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "bump_1": {
         "description": "void bump(string space, float amp)",
         "prefix": "bump(space, amp)",
         "body": "bump(${1:string space}, ${2:float amp})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "bump_2": {
         "description": "void bump(vector offset)",
         "prefix": "bump(offset)",
         "body": "bump(${1:vector offset})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "printf": {
         "description": "void printf(string fmt, ...)",
         "prefix": "printf(fmt, ...)",
         "body": "printf(${1:string fmt}, ${2:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "format": {
         "description": "string format(string fmt, ...)",
         "prefix": "format(fmt, ...)",
         "body": "format(${1:string fmt}, ${2:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "error": {
         "description": "void error(string fmt, ...)",
         "prefix": "error(fmt, ...)",
         "body": "error(${1:string fmt}, ${2:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "warning": {
         "description": "void warning(string fmt, ...)",
         "prefix": "warning(fmt, ...)",
         "body": "warning(${1:string fmt}, ${2:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "fprintf": {
         "description": "void fprintf(string filename, string fmt, ...)",
         "prefix": "fprintf(filename, fmt, ...)",
         "body": "fprintf(${1:string filename}, ${2:string fmt}, ${3:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "concat": {
         "description": "string concat(string s1, ..., string sN)",
         "prefix": "concat(s1, ..., sN)",
         "body": "concat(${1:string s1}, ${2:...}, ${3:string sN})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "strlen": {
         "description": "int strlen(string s)",
         "prefix": "strlen(s)",
         "body": "strlen(${1:string s})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "startswith": {
         "description": "int startswith(string s, string prefix)",
         "prefix": "startswith(s, prefix)",
         "body": "startswith(${1:string s}, ${2:string prefix})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "endswith": {
         "description": "int endswith(string s, string suffix)",
         "prefix": "endswith(s, suffix)",
         "body": "endswith(${1:string s}, ${2:string suffix})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "stoi": {
         "description": "int stoi(string str)",
         "prefix": "stoi(str)",
         "body": "stoi(${1:string str})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "stof": {
         "description": "float stof(string str)",
         "prefix": "stof(str)",
         "body": "stof(${1:string str})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "split": {
         "description": "int split(string str, output string results[], string sep, int maxsplit)",
         "prefix": "split(str, results[], sep, maxsplit)",
         "body": "split(${1:string str}, ${2:output string results[]}, ${3:string sep}, ${4:int maxsplit})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "split_1": {
         "description": "int split(string str, output string results[], string sep)",
         "prefix": "split(str, results[], sep)",
         "body": "split(${1:string str}, ${2:output string results[]}, ${3:string sep})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "split_2": {
         "description": "int split(string str, output string results[])",
         "prefix": "split(str, results[])",
         "body": "split(${1:string str}, ${2:output string results[]})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "substr": {
         "description": "string substr(string s, int start, int length)",
         "prefix": "substr(s, start, length)",
         "body": "substr(${1:string s}, ${2:int start}, ${3:int length})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "substr_1": {
         "description": "string substr(string s, int start)",
         "prefix": "substr(s, start)",
         "body": "substr(${1:string s}, ${2:int start})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "getchar": {
         "description": "int getchar(string s, int n)",
         "prefix": "getchar(s, n)",
         "body": "getchar(${1:string s}, ${2:int n})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "hash_5": {
         "description": "int hash(string s)",
         "prefix": "hash(s)",
         "body": "hash(${1:string s})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "regex_search": {
         "description": "int regex_search(string subject, string regex)",
         "prefix": "regex_search(subject, regex)",
         "body": "regex_search(${1:string subject}, ${2:string regex})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "regex_search_1": {
         "description": "int regex_search(string subject, int results[], string regex)",
         "prefix": "regex_search(subject, results[], regex)",
         "body": "regex_search(${1:string subject}, ${2:int results[]}, ${3:string regex})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "regex_match": {
         "description": "int regex_match(string subject, string regex)",
         "prefix": "regex_match(subject, regex)",
         "body": "regex_match(${1:string subject}, ${2:string regex})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "regex_match_1": {
         "description": "int regex_match(string subject, int results[], string regex)",
         "prefix": "regex_match(subject, results[], regex)",
         "body": "regex_match(${1:string subject}, ${2:int results[]}, ${3:string regex})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "diffuse": {
         "description": "closure color diffuse(normal N)",
         "prefix": "diffuse(N)",
         "body": "diffuse(${1:normal N})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "phong": {
         "description": "closure color phong(normal N, float exponent)",
         "prefix": "phong(N, exponent)",
         "body": "phong(${1:normal N}, ${2:float exponent})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "oren_nayar": {
         "description": "closure color oren_nayar(normal N, float sigma)",
         "prefix": "oren_nayar(N, sigma)",
         "body": "oren_nayar(${1:normal N}, ${2:float sigma})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "ward": {
         "description": "closure color ward(normal N, vector T, float xrough, float yrough)",
         "prefix": "ward(N, T, xrough, yrough)",
         "body": "ward(${1:normal N}, ${2:vector T}, ${3:float xrough}, ${4:float yrough})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "microfacet": {
         "description": "closure color microfacet(string distribution, normal N, vector U, float xalpha, float yalpha, float eta, int refract)",
         "prefix": "microfacet(distribution, N, U, xalpha, yalpha, eta, refract)",
         "body": "microfacet(${1:string distribution}, ${2:normal N}, ${3:vector U}, ${4:float xalpha}, ${5:float yalpha}, ${6:float eta}, ${7:int refract})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "microfacet_1": {
         "description": "closure color microfacet(string distribution, normal N, float alpha, float eta, int refract)",
         "prefix": "microfacet(distribution, N, alpha, eta, refract)",
         "body": "microfacet(${1:string distribution}, ${2:normal N}, ${3:float alpha}, ${4:float eta}, ${5:int refract})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "reflection": {
         "description": "closure color reflection(normal N, float eta)",
         "prefix": "reflection(N, eta)",
         "body": "reflection(${1:normal N}, ${2:float eta})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "refraction": {
         "description": "closure color refraction(normal N, float eta)",
         "prefix": "refraction(N, eta)",
         "body": "refraction(${1:normal N}, ${2:float eta})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "transparent": {
         "description": "closure color transparent()",
         "prefix": "transparent()",
         "body": "transparent(${1:})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "translucent": {
         "description": "closure color translucent()",
         "prefix": "translucent()",
         "body": "translucent(${1:})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "subsurface": {
         "description": "closure color subsurface()",
         "prefix": "subsurface()",
         "body": "subsurface(${1:})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "isotropic": {
         "description": "closure color isotropic()",
         "prefix": "isotropic()",
         "body": "isotropic(${1:})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "henyey_greenstein": {
         "description": "closure color henyey_greenstein(float g)",
         "prefix": "henyey_greenstein(g)",
         "body": "henyey_greenstein(${1:float g})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "absorption": {
         "description": "closure color absorption()",
         "prefix": "absorption()",
         "body": "absorption(${1:})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "emission": {
         "description": "closure color emission()",
         "prefix": "emission()",
         "body": "emission(${1:})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "background": {
         "description": "closure color background()",
         "prefix": "background()",
         "body": "background(${1:})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "holdout": {
         "description": "closure color holdout()",
         "prefix": "holdout()",
         "body": "holdout(${1:})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "debug": {
         "description": "closure color debug(string outputname)",
         "prefix": "debug(outputname)",
         "body": "debug(${1:string outputname})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "getattribute": {
         "description": "int getattribute(string name, output type destination)",
         "prefix": "getattribute(name, destination)",
         "body": "getattribute(${1:string name}, ${2:output type destination})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "getattribute_1": {
         "description": "int getattribute(string object, string name, output type destination)",
         "prefix": "getattribute(object, name, destination)",
         "body": "getattribute(${1:string object}, ${2:string name}, ${3:output type destination})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "setmessage": {
         "description": "void setmessage(string name, output type value)",
         "prefix": "setmessage(name, value)",
         "body": "setmessage(${1:string name}, ${2:output type value})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "getmessage": {
         "description": "int getmessage(string source, string name, output type destination)",
         "prefix": "getmessage(source, name, destination)",
         "body": "getmessage(${1:string source}, ${2:string name}, ${3:output type destination})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "raytype": {
         "description": "int raytype(string name)",
         "prefix": "raytype(name)",
         "body": "raytype(${1:string name})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "isconnected": {
         "description": "int isconnected(type parameter)",
         "prefix": "isconnected(parameter)",
         "body": "isconnected(${1:type parameter})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "isconstant": {
         "description": "int isconstant(type expr)",
         "prefix": "isconstant(expr)",
         "body": "isconstant(${1:type expr})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "dict_find": {
         "description": "int dict_find(string dictionary, string query)",
         "prefix": "dict_find(dictionary, query)",
         "body": "dict_find(${1:string dictionary}, ${2:string query})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "dict_find_1": {
         "description": "int dict_find(int nodeID, string query)",
         "prefix": "dict_find(nodeID, query)",
         "body": "dict_find(${1:int nodeID}, ${2:string query})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "dict_next": {
         "description": "int dict_next(int nodeID)",
         "prefix": "dict_next(nodeID)",
         "body": "dict_next(${1:int nodeID})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "dict_value": {
         "description": "int dict_value(int nodeID, string attribname, output type value)",
         "prefix": "dict_value(nodeID, attribname, value)",
         "body": "dict_value(${1:int nodeID}, ${2:string attribname}, ${3:output type value})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "trace": {
         "description": "int trace(point pos, vector dir, ...)",
         "prefix": "trace(pos, dir, ...)",
         "body": "trace(${1:point pos}, ${2:vector dir}, ${3:...})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     },
     "arraylength": {
         "description": "int arraylength(type A[])",
         "prefix": "arraylength(A[])",
         "body": "arraylength(${1:type A[]})",
-        "scope": "souce.osl"
+        "scope": "source.osl"
     }
 }

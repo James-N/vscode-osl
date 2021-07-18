@@ -2,6 +2,7 @@ import sys
 import tempfile
 import os.path
 import json
+import argparse
 from datetime import datetime
 
 import spec_download
@@ -34,7 +35,27 @@ def create_snippet(osl_func):
         'scope': SCOPE_OSL
     }
 
-def main(snippet_tpl, output_path):
+def generate_snippets(tex_file, snippet_tpl, output_path):
+    snippets = load_snippet_template(snippet_tpl)
+
+    print("begin generate snippets...")
+
+    signatures = {}
+    for func in function_extract.extract_from_file(tex_file):
+        count = signatures.get(func.name, 0)
+        if count == 0:
+            snippets[func.name] = create_snippet(func)
+            signatures[func.name] = 1
+        else:
+            snippets[f"{func.name}_{count}"] = create_snippet(func)
+            signatures[func.name] = count + 1
+
+    with open(output_path, 'w', encoding='utf8') as outf:
+        json.dump(snippets, outf, indent=4)
+
+    print(f"snippets generate success [{output_path}]")
+
+def download_snippets(snippet_tpl, output_path):
     snippets = load_snippet_template(snippet_tpl)
 
     with tempfile.TemporaryDirectory() as tempdir:
@@ -47,30 +68,16 @@ def main(snippet_tpl, output_path):
 
         print("language spec download success")
 
-        print("begin generate snippets...")
-
-        signatures = {}
-
-        for func in function_extract.extract_from_file(temp_tex_file):
-            count = signatures.get(func.name, 0)
-            if count == 0:
-                snippets[func.name] = create_snippet(func)
-                signatures[func.name] = 1
-            else:
-                snippets[f"{func.name}_{count}"] = create_snippet(func)
-                signatures[func.name] = count + 1
-
-        with open(output_path, 'w', encoding='utf8') as outf:
-            json.dump(snippets, outf, indent=4)
-
-        print(f"snippets generate success [{output_path}]")
+        generate_snippets(temp_tex_file, snippet_tpl, output_path)
 
 if __name__ == "__main__":
-    argc = len(sys.argv)
-    if argc < 2:
-        sys.stderr.write("missing snippet template file\n")
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-o', '--output', type=str, required=True)
+    parser.add_argument('-t', '--template', type=str, required=True)
+    parser.add_argument('--spec', type=str, required=False)
 
-    if argc < 3:
-        sys.stderr.write("missing output path\n")
-
-    main(sys.argv[1], sys.argv[2])
+    args = parser.parse_args()
+    if args.spec is not None:
+        generate_snippets(args.spec, args.template, args.output)
+    else:
+        download_snippets(args.template, args.output)
