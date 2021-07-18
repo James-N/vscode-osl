@@ -37,6 +37,9 @@
             "name": "support.constant.math"
         },
         {
+            "include": "#metadata-section"
+        },
+        {
             "include": "#operators"
         },
         {
@@ -557,6 +560,39 @@
                     "include": "#pragma-mark"
                 }
             ]
+        },
+        "metadata-section": {
+            "begin": "\\[\\[",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.squarebracket.open.osl"
+                }
+            },
+            "end": "\\]\\]",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.squarebracket.close.osl"
+                }
+            },
+            "patterns": [{
+                "include": "#metadata-keyvalue"
+            }]
+        },
+        "metadata-keyvalue": {
+            "patterns": [{
+                "match": "\\b(string|float|int)\\b",
+                "name": "storage.type.metadata.osl"
+            }, {
+                "match": "[_[:alpha:]][_[:alnum:]]*",
+                "name": "entity.name.variable.metadata.osl"
+            }, {
+                "match": "=",
+                "name": "keyword.operator.assignment.metadata.osl"
+            }, {
+                "include": "#strings"
+            }, {
+                "include": "#numbers"
+            }]
         },
         "preprocessor-rule-conditional": {
             "patterns": [
